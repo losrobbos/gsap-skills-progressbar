@@ -1,0 +1,56 @@
+---
+const { skill, progress } = Astro.props;
+
+console.log({ skill, progress });
+---
+
+<section>
+  <div class="skill">
+    <span>{skill}</span>
+    <span>{progress}%</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" data-progress={progress}></div>
+  </div>
+</section>
+
+<style>
+  .skill {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+  }
+  .bar-container {
+    height: 10px;
+    background-color: #ccc;
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      transition: 2s;
+      background-color: rgb(73, 150, 212);
+    }
+  }
+</style>
+
+<script>
+  const bars = document.querySelectorAll<HTMLDivElement>(".bar");
+
+  setTimeout(() => {
+    bars.forEach((bar) => {
+      bar.style.width = `${bar.dataset["progress"]}%`;
+    });
+  }, 2000);
+</script>
+
+<!-- define vars => forward server side variable to script 
+    disadvantage: script is not bundled with other JS sections, it is inlined into the HTML file!
+-->
+<!-- <script define:vars={{progress}}>
+
+    console.log({ progress })
+    setTimeout(() => {
+        const bar = document.querySelector(".bar")
+        bar.style.setProperty('--right', (100-progress) + "%");
+    }, 3000)
+</script> -->
