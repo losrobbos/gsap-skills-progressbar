@@ -1,7 +1,6 @@
 ---
 const { skill, progress } = Astro.props;
 
-console.log({ skill, progress });
 ---
 
 <section>
@@ -19,6 +18,7 @@ console.log({ skill, progress });
     display: flex;
     justify-content: space-between;
     padding-bottom: 0.5em;
+    text-transform: uppercase;
   }
   .bar-container {
     height: 10px;
@@ -40,7 +40,7 @@ console.log({ skill, progress });
     bars.forEach((bar) => {
       bar.style.width = `${bar.dataset["progress"]}%`;
     });
-  }, 2000);
+  }, 1000);
 </script>
 
 <!-- define vars => forward server side variable to script 

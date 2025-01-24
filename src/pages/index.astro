@@ -8,13 +8,24 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+	<h2>Skills</h2>
 	<div class="skills">
-		<Skill skill="html" progress="100" />
-		<Skill skill="php" progress="80" />
+		<Skill skill="html" progress="90" />
+		<Skill skill="php" progress="30" />
+		<Skill skill="css" progress="85" />
+		<Skill skill="javascript" progress="95" />
+		<Skill skill="three JS" progress="60" />
+		<Skill skill="react" progress="90" />
+		<Skill skill="react three fiber" progress="80" />
     </div>
 </Layout>
 
 <style>
+
+	h2 {
+		text-align: center;
+	}
+
 	.skills {
 		padding-top: 3rem;
 		margin: auto;
@@ -22,8 +33,6 @@ import Layout from '../layouts/Layout.astro';
 
 		display: grid;
 		gap: 2rem;
-		/* row-gap: 1rem;
-		column-gap: 2rem; */
 
 		@media (width >= 768px) {
 			max-width: 700px;
